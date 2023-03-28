@@ -2,6 +2,7 @@ package model;
 
 import model.automata.FSM;
 import model.exceptions.InvalidTransitionException;
+import utils.Config;
 
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -11,6 +12,10 @@ public class Patient {
     private FSM<Status> controller;
     public Patient(Map<Status, Set<Status>> transitions) {
         this.controller = new FSM<>(transitions, Status.ILL, Status.DISCHARGED);
+    }
+
+    public Patient() {
+        this.controller = new FSM<>(Config.defaultPatientTransitions, Status.ILL, Status.DISCHARGED);
     }
 
     public Status getStatus() {

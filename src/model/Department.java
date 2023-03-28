@@ -12,15 +12,9 @@ public class Department {
         this.capacity = capacity;
         this.patients = new Patient[capacity];
         for (int i = 0; i < capacity; ++i) {
-            this.patients[i] = new Patient(defaultPatientTransitions);
+            this.patients[i] = new Patient();
         }
     }
-
-    public static final Map<Status, Set<Status>> defaultPatientTransitions =
-            Map.of(Status.SERIOUSLY_ILL, Set.of(Status.ILL, Status.DISCHARGED),
-                    Status.ILL, Set.of(Status.SLIGHTLY_ILL, Status.SERIOUSLY_ILL, Status.DISCHARGED),
-                    Status.SLIGHTLY_ILL, Set.of(Status.DISCHARGE_READY, Status.ILL, Status.DISCHARGED),
-                    Status.DISCHARGE_READY, Set.of(Status.DISCHARGED, Status.SLIGHTLY_ILL));
 
     public int getCapacity() {
         return capacity;

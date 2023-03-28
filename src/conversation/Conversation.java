@@ -3,6 +3,7 @@ package conversation;
 import conversation.actions.Action;
 import conversation.actions.IllegalAction;
 import model.Department;
+import utils.Config;
 
 import java.util.*;
 
